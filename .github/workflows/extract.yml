@@ -25,6 +25,8 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v4
+        with:
+          path: '../../../../../mnt/btfhub-archive'
 
       - name: free disk space
         run: |
@@ -49,6 +51,5 @@ jobs:
           git commit -a -m "extract new xz files"
 
       - name: Push changes
-        uses: ad-m/github-push-action@77c5b412c50b723d2a4fbc6d71fb5723bcd439aa
-        with:
-          branch: ${{ github.head_ref }}
+        run: |
+          git push
