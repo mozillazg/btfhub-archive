@@ -29,6 +29,9 @@ jobs:
           sudo mkdir -p /mnt/btfhub-archive
           sudo chown $(id -u) /mnt/btfhub-archive
           sudo ln -s /mnt/btfhub-archive /home/runner/work/btfhub-archive
+          ls -lh /home/runner/work/btfhub-archive
+          mkdir -p /home/runner/work/btfhub-archive/btfhub-archive
+          ls -lh /mnt/btfhub-archive
           rm -rf /opt/hostedtoolcache
           df -lh
 
