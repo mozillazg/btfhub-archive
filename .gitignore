@@ -1,5 +1,3 @@
 **/*.ddeb
 **/*.deb
 **/*.rpm
-**/vmlinux-*
-**/*.btf
