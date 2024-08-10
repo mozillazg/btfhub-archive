@@ -25,10 +25,10 @@ jobs:
     steps:
       - name: free disk space
         run: |
-          rm -rf /home/runner/work/btfhub-archive/btfhub-archive
+          rm -rf /home/runner/work/btfhub-archive
           sudo mkdir -p /mnt/btfhub-archive
           sudo chown $(id -u) /mnt/btfhub-archive
-          sudo ln -s /mnt/btfhub-archive /home/runner/work/btfhub-archive/btfhub-archive
+          sudo ln -s /mnt/btfhub-archive /home/runner/work/btfhub-archive
           rm -rf /opt/hostedtoolcache
           df -lh
 
