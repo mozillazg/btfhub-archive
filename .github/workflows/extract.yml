@@ -23,15 +23,18 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v4
-        with:
-          path: '../../../../../mnt/btfhub-archive'
-
       - name: free disk space
         run: |
+          rm -rf /home/runner/work/btfhub-archive/btfhub-archive
+          mkdir -p /mnt/btfhub-archive
+          ln -s /mnt/btfhub-archive /home/runner/work/btfhub-archive/btfhub-archive
           rm -rf /opt/hostedtoolcache
           df -lh
+
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v4
+        #with:
+          # path: '../../../../../mnt/btfhub-archive'
 
       # Runs a single command using the runners shell
       - name: extract xz files
