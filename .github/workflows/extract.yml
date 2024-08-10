@@ -31,8 +31,9 @@ jobs:
         run: |
           find . -type d -print0 | while IFS= read -r -d $'\0' dir; do
             find "$dir" -type f -name "*.tar.xz" | while IFS= read -r file; do
+              echo "$file"
               dir_path=$(dirname "$file")
-              tar -xvf "$file" -C "$dir_path"
+              tar -xvf "$file" -C "$dir_path" || true
             done
           done
 
