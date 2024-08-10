@@ -26,6 +26,11 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v4
 
+      - name: free disk space
+        run: |
+          rm -rf /opt/hostedtoolcache
+          df -lh
+
       # Runs a single command using the runners shell
       - name: extract xz files
         run: |
@@ -33,7 +38,7 @@ jobs:
             find "$dir" -type f -name "*.tar.xz" | while IFS= read -r file; do
               echo "$file"
               dir_path=$(dirname "$file")
-              tar -xvf "$file" -C "$dir_path" || true
+              tar -xvf "$file" -C "$dir_path"
             done
           done
 
